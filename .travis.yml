@@ -20,3 +20,16 @@ after_success:
   - docker push azajvahora/fibonacci-nginx
   - docker push azajvahora/fibonacci-server
   - docker push azajvahora/fibonacci-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: fib-multi-docker
+  env: Fib-multi-docker-env-1
+  bucket_name: elasticbeanstalk-ap-south-1-854357055577
+  bucket_path: fib-multi-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWC_SECRET_KEY"
