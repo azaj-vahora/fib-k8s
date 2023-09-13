@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: azajvahora/fibonacci-server
+          image: azajvahora/fibonacci-k8s-server
           ports:
             - containerPort: 5000
           env:
